@@ -1,0 +1,20 @@
+<div>
+  <h3>Adicionar Novo Produto</h3>
+</div>
+
+<form class="form-horizontal" [formGroup]="addForm" (ngSubmit)="onSubmit()">
+
+    <div class="col-sm-12 form-group">
+      <label for="name">Nome do Produto</label>
+      <input type="text" class="form-control" placeholder="Nome do Produto" formControlName="name">
+    </div>
+    <div class="col-sm-12 form-group">
+      <label for="price">R$</label>
+      <input type="number" class="form-control" placeholder="Preço do Produto" formControlName="price">
+    </div>
+    <div class="col-sm-12 form-group">
+      <label for="image">Imagem do Produto</label>
+      <input type="text" class="form-control" placeholder="Imagem do Produto" formControlName="image">
+    </div>   
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>

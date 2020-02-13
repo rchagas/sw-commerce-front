@@ -1,0 +1,12 @@
+@import url('https://fonts.googleapis.com/css?family=Cedarville+Cursive|Rock+Salt|Sacramento&display=swap');
+
+.navbar-brand {
+    font-family: 'Cedarville Cursive', cursive;
+    color: red;
+    font-size: 30px;
+    font-style: italic;
+}
+
+#navbar button{
+    margin: 10px;
+}

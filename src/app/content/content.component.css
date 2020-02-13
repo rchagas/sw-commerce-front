@@ -1,0 +1,24 @@
+.example-card {
+    max-width: 250px;
+    margin: 10px;
+    display: inline-block;
+    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+}
+
+mat-card *{
+    text-align: center;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    justify-content: center;
+}
+
+mat-card img{
+    width: 200px;
+}
+
+
+.pprice{
+    font-size: larger;
+    font-weight: bolder;
+}
