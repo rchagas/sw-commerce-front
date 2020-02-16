@@ -5,7 +5,7 @@
         <th scope="col">#</th>
         <th scope="col">Name</th>
         <th scope="col">Preço</th>
-        <th scope="col"><button class="btn btn-dark btn-sm" (click)="openAddProduct()">Novo Produto</button>
+        <th scope="col"><button type="button" class="btn btn-dark btn-sm" (click)="openAddProduct()">Novo Produto</button>
         </th>
       </tr>
     </thead>
@@ -14,7 +14,7 @@
         <th scope="row">{{product.id}}</th>
         <td>{{product.name}}</td>
         <td>{{product.price.toFixed(2)}}</td>
-        <td><button class="link">Details</button> | <button class="link" (click)="openEditProduct(product)">Edit</button> | <button class="link">Delete</button></td>
+        <td><button type="button" class="link" (click)="openEditProduct(product)">Edit</button> | <button type="button" class="link" (click)="openDelProduct(product)">Delete</button></td>
       </tr>
     </tbody>
   </table>

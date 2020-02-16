@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
-import { HttpClient } from '@angular/common/http';
-
 import { FormBuilder, FormGroup, NgForm, Validators, ReactiveFormsModule, FormControl } from '@angular/forms';
-import { ProductService } from 'src/service/product.service';
+
 import { MatDialogRef } from '@angular/material/dialog';
+
+import { ProductService } from 'src/service/product.service';
+
 
 @Component({
   selector: 'app-add-product',
@@ -16,7 +16,6 @@ export class AddProductComponent implements OnInit {
   addForm: FormGroup;
 
   constructor(private formBuilder: FormBuilder, 
-    private http: HttpClient, 
     public dialogRef: MatDialogRef<AddProductComponent>,
     private _productService: ProductService) { 
     
@@ -26,7 +25,7 @@ export class AddProductComponent implements OnInit {
     this.addForm = this.formBuilder.group({
       name: [null],
       price: [null],
-      image: [null]
+      image: [null],
     })
   }
 

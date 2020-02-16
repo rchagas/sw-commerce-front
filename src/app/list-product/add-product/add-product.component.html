@@ -12,7 +12,9 @@
       <label for="image">Imagem do Produto</label>
       <input type="text" class="form-control" placeholder="Imagem do Produto" formControlName="image">
     </div>
+    <div class="buttons">
       <button type="button" class="btn btn-outline-dark" (click)="onCancelClick()">Cancelar</button>
-      <button type="submit" class="btn btn-dark" [mat-dialog-close]="">Cadastrar</button>
+      <button type="submit" class="btn btn-dark" [mat-dialog-close]="addForm.value">Cadastrar</button>
+    </div>
   </form>
 </div>

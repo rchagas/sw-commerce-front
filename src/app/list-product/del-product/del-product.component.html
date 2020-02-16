@@ -1,0 +1,22 @@
+<div mat-dialog-content>
+    <p class="p-3 mb-2 bg-danger text-white rounded-bottom">Atenção: Após Confirmação essa alteração não pode ser desfeita.</p>
+    <h3>Deseja confirmar a exclusão desse produto?</h3>
+    <div class="row">
+    <div class="col-8">
+        <label for="id">Id do Produto: </label>
+        <p>{{data.product.id}}</p>
+        <label for="name">Nome do Produto: </label>
+        <p>{{data.product.name}}</p>
+        <label for="price">Preço R$: </label>
+        <p>{{data.product.price.toFixed(2)}}</p>
+    </div>
+    <div class="col-4">
+        <img src="{{data.product.image}}" alt="Foto do Produto">
+        <div class="buttons">
+            <button type="button" class="btn btn-outline-dark" (click)="onCancelClick()">Cancelar</button>
+            <button type="button" class="btn btn-outline-danger" (click)="delProduct()" [mat-dialog-close]="data.product">Confirmar</button>
+        </div>
+    </div>
+    </div>
+
+</div>

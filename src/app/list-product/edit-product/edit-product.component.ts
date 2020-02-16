@@ -1,8 +1,8 @@
 import { Component, OnInit, Inject } from '@angular/core';
-import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { Product } from 'src/model/product';
 import { FormGroup, FormBuilder } from '@angular/forms';
-import { HttpClient } from '@angular/common/http';
+
+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+
 import { ProductService } from 'src/service/product.service';
 
 @Component({
@@ -12,18 +12,14 @@ import { ProductService } from 'src/service/product.service';
 })
 export class EditProductComponent implements OnInit {
   
-  product: Product;
   editForm: FormGroup;
 
   constructor(
-    private formBuilder: FormBuilder, 
-    private http: HttpClient, 
+    private formBuilder: FormBuilder,
     public dialogRef: MatDialogRef<EditProductComponent>,
     private _productService: ProductService,
-    @Inject(MAT_DIALOG_DATA) public data
-  ) {
-      this.product = data.product;
-      console.log(this.product);
+    @Inject(MAT_DIALOG_DATA) public data) {
+      console.log(data);
   }
 
   ngOnInit() {

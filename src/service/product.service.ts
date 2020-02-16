@@ -37,6 +37,12 @@ export class ProductService {
       form.value)
       .subscribe(dados => console.log(dados),err => console.log(err));
   }
+
+  delProduct(product){
+    console.log(product);
+    this.http.delete(apiUrl,product)
+    .subscribe(dados => console.log(dados),err => console.log(err));
+  }
   
   private handleError<T> (operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {

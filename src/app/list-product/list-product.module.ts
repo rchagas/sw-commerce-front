@@ -6,6 +6,7 @@ import { AddProductComponent } from './add-product/add-product.component';
 import { ListProductRoutingModule } from './list-product.routing.module';
 import { AppMaterialModule } from '../app-material/app-material.module';
 import { ReactiveFormsModule } from '@angular/forms';
+import { DelProductComponent } from './del-product/del-product.component';
 
 @NgModule({
     imports:[
@@ -21,6 +22,12 @@ import { ReactiveFormsModule } from '@angular/forms';
         ListProductComponent,
         AddProductComponent,
         EditProductComponent,
+        DelProductComponent,
+    ],
+    entryComponents:[
+        AddProductComponent,
+        EditProductComponent,
+        DelProductComponent,
     ],
     providers:[]
 })

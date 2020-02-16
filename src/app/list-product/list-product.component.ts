@@ -4,6 +4,7 @@ import { ProductService } from 'src/service/product.service';
 import { MatDialog } from '@angular/material/dialog';
 import { AddProductComponent } from './add-product/add-product.component';
 import { EditProductComponent } from './edit-product/edit-product.component';
+import { DelProductComponent } from './del-product/del-product.component';
 
 @Component({
   selector: 'app-list-product',
@@ -36,6 +37,18 @@ export class ListProductComponent implements OnInit {
 
   openEditProduct(product: Product): void {
     const dialogRef = this.dialog.open(EditProductComponent, {
+      width: '80%',
+      data: {product}
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(result);
+      this.listProduct();
+    });
+  }
+
+  openDelProduct(product: Product): void {
+    const dialogRef = this.dialog.open(DelProductComponent, {
       width: '80%',
       data: {product}
     });

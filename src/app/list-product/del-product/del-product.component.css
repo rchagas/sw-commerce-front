@@ -4,6 +4,10 @@ img{
     max-height: 100%;
 }
 
+label{
+    font-weight: bolder;
+}
+
 .btn{
     margin: 10px;
 }
