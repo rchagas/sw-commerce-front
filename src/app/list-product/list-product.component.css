@@ -1,3 +1,18 @@
 table {
     margin-top: 5px;
 }
+
+thead button {
+    font-weight: bold;
+    height: 26px;
+}
+.link {
+    background-color: transparent;
+    border: 0;
+    color: #00f;
+    cursor: pointer;
+    display: inline-block;
+    padding: 0;
+    position: relative;
+    text-decoration: underline;
+}

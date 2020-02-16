@@ -21,23 +21,22 @@ export class ProductService {
   getProducts (): Observable<Product[]> {
     return this.http.get<Product[]>(apiUrl)
       .pipe(
-        tap(produtos => console.log('leu os produtos')),
+        tap(produtos => console.log('OK')),
         catchError(this.handleError('getProdutos', []))
       );
   }
-/*
-  addProduct(form: NgForm) {
-    this.isLoadingResults = true;
-    this.api.addProduto(form)
-      .subscribe(res => {
-          const id = res['_id'];
-          this.isLoadingResults = false;
-          this.router.navigate(['/produto-detalhe', id]);
-        }, (err) => {
-          console.log(err);
-          this.isLoadingResults = false;
-        });
-  }*/
+ 
+  addProduct(form) {
+    this.http.post(apiUrl,
+    form.value)
+    .subscribe(dados => console.log(dados),err => console.log(err));
+  }
+
+  updateProduct(form){
+    this.http.put(apiUrl,
+      form.value)
+      .subscribe(dados => console.log(dados),err => console.log(err));
+  }
   
   private handleError<T> (operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {

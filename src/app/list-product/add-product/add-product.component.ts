@@ -4,6 +4,7 @@ import { HttpClient } from '@angular/common/http';
 
 import { FormBuilder, FormGroup, NgForm, Validators, ReactiveFormsModule, FormControl } from '@angular/forms';
 import { ProductService } from 'src/service/product.service';
+import { MatDialogRef } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-add-product',
@@ -14,7 +15,10 @@ export class AddProductComponent implements OnInit {
 
   addForm: FormGroup;
 
-  constructor(private formBuilder: FormBuilder, private http: HttpClient) { 
+  constructor(private formBuilder: FormBuilder, 
+    private http: HttpClient, 
+    public dialogRef: MatDialogRef<AddProductComponent>,
+    private _productService: ProductService) { 
     
   }
 
@@ -28,9 +32,11 @@ export class AddProductComponent implements OnInit {
 
   onSubmit(){
     console.log(this.addForm.value);
-    this.http.post('https://localhost:5001/api/Product',
-      this.addForm.value)
-      .subscribe(dados => console.log(dados));
+    this._productService.addProduct(this.addForm);
+  }
+
+  onCancelClick(): void {
+    this.dialogRef.close();
   }
 
 }
