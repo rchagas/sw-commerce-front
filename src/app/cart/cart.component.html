@@ -1,0 +1,23 @@
+
+<table class="table table-hover">
+    <thead class="thead-dark">
+        <tr>
+            <th scope="col">Name</th>
+            <th scope="col">Preço Unitário</th>
+            <th scope="col">Quantidade</th>   
+            <th scope="col">Total sem Desconto</th>        
+            <th scope="col">Desconto</th>
+            <th scope="col">Total</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let product of data.products">
+            <td>{{product.product.name}}</td>
+            <td>{{product.product.price.toFixed(2)}}</td>
+            <td>{{product.amount}}</td>
+            <td>{{product.totalWithoutDiscount}}</td>
+            <td>{{product.discount}}</td>
+            <td>{{product.total}}</td>
+        </tr>
+    </tbody>
+</table>

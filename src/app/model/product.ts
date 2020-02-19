@@ -5,5 +5,6 @@ export class Product {
     Name: string;
     Price: number;
     Image: string;
+    OfferId: number;
     Offer: Offer;
 }

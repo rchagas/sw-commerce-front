@@ -1,0 +1,33 @@
+<div id="dialog" mat-dialog-content>
+    <h5 *ngIf="data.product.offerId!=1" class="head p-3 mb-2 bg-warning text-black rounded">OFERTA: {{data.product.offer.name}}</h5>
+    <h5 *ngIf="data.product.offerId==1" class="head p-3 mb-2 bg-dark text-white rounded">Compre Agora Mesmo</h5>
+    <div class="row">
+    <div class="col-8">
+        <label for="name">Nome do Produto: </label>
+        <p>{{data.product.name}}</p>
+        <label for="price">Preço R$: </label>
+        <p>{{data.product.price.toFixed(2)}}</p>
+        <label>Quantidade: </label>
+        <div class="input-group mb-3 col-8">
+            <input type="number" class="form-control" aria-describedby="basic-addon1" [(value)]="amount" readonly>
+            <div class="input-group-prepend">
+                <button class="input-group-text" id="basic-addon1" (click)="remAmount()">
+                    <i class="material-icons">remove_circle_outline</i>
+                </button>
+            </div>
+            <div class="input-group-prepend">
+                <button class="input-group-text" id="basic-addon1" (click)="addAmount()">
+                    <i class="material-icons">add_circle_outline</i>
+                </button>
+            </div>                    
+        </div>
+    </div>
+    <div class="col-4">
+        <img src="{{data.product.image}}" alt="Foto do Produto">
+    </div>
+    </div>
+    <div class="buttons">
+        <button type="button" class="btn btn-outline-dark" (click)="onCancelClick()">Cancelar</button>
+        <button type="button" class="btn btn-dark" [mat-dialog-close]="data.product" (click)="cart()">Adicionar ao Carrinho</button>
+    </div>
+</div>

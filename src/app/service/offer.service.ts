@@ -12,7 +12,6 @@ const apiUrl = 'https://localhost:5001/api/Offer';
   providedIn: 'root'
 })
 export class OfferService {
-  [x: string]: any;
 
   constructor(private http: HttpClient) { }
 

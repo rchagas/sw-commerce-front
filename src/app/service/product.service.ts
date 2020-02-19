@@ -31,11 +31,8 @@ export class ProductService {
   }
 
   updateProduct(product){
-    const options = {
-      headers: new HttpHeaders({'Content-Type': 'application/json'})
-    }
-    
-    this.http.put(apiUrl,JSON.stringify(product),options)
+    console.log(product);
+    this.http.put(apiUrl,product)
       .subscribe(dados => console.log(dados),err => console.log(err));
   }
 

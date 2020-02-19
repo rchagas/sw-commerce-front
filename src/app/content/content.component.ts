@@ -1,6 +1,11 @@
 import { Component, OnInit } from '@angular/core';
+
+import { MatDialog } from '@angular/material/dialog';
+
 import { Product } from 'src/app/model/product';
 import { ProductService } from 'src/app/service/product.service';
+import { AddCartComponent } from './add-cart/add-cart.component';
+
 
 @Component({
   selector: 'app-content',
@@ -9,18 +14,35 @@ import { ProductService } from 'src/app/service/product.service';
 })
 export class ContentComponent implements OnInit {
 
-  productService: ProductService;
-  dataSource: Product[];
+  products: Product[];
 
-  constructor(private products: ProductService ) {
-    this.productService = products;
+  constructor(
+    private productService: ProductService,
+    public dialog: MatDialog) {
    }
 
   ngOnInit() {
+    this.list();
+  }
+
+  addCart(product: Product){
+    const dialogRef = this.dialog.open(AddCartComponent, {
+      panelClass: 'panel',
+      width: '80%',
+      data: {product}
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(result);
+      this.list();
+    });
+  }
+
+  list(){
     this.productService.getProducts()
     .subscribe(res => {
-      this.dataSource = res;
-      console.log(this.dataSource);
+      this.products = res;
+      console.log(this.products);
     }, err => {
       console.log(err);
     });
