@@ -6,7 +6,7 @@
             <th scope="col">Preço Unitário</th>
             <th scope="col">Quantidade</th>
             <th scope="col">Oferta</th>            
-            <th scope="col">Total sem Desconto</th>        
+            <th scope="col">Valor dos Produtos</th>        
             <th scope="col">Desconto</th>
             <th scope="col">Total</th>
             <th scope="col"></th>
@@ -25,3 +25,13 @@
         </tr>
     </tbody>
 </table>
+<div class="footer row">
+    <div class="col-5"></div>
+    <div class="col-1">Valor </div>
+    <div class="col-1">{{data.totalWithoutDiscount}}</div>
+    <div class="col-1">Desconto </div>
+    <div class="col-1">{{data.discount}}</div>
+    <div class="col-1">Total </div>
+    <div class="col-1">{{data.total}}</div>
+    <div class="col-1"></div>
+</div>
