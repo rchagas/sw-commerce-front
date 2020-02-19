@@ -3,7 +3,8 @@ import { FormGroup, FormBuilder } from '@angular/forms';
 
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 
-import { ProductService } from 'src/service/product.service';
+import { ProductService } from 'src/app/service/product.service';
+import { OfferService } from 'src/app/service/offer.service';
 
 @Component({
   selector: 'app-edit-product',
@@ -13,13 +14,14 @@ import { ProductService } from 'src/service/product.service';
 export class EditProductComponent implements OnInit {
   
   editForm: FormGroup;
+  offerId;
 
   constructor(
     private formBuilder: FormBuilder,
     public dialogRef: MatDialogRef<EditProductComponent>,
     private _productService: ProductService,
     @Inject(MAT_DIALOG_DATA) public data) {
-      console.log(data);
+      this.offerId = this.data.product.offerId.toString();
   }
 
   ngOnInit() {
@@ -28,12 +30,13 @@ export class EditProductComponent implements OnInit {
       name: [this.data.product.name],
       price: [this.data.product.price],
       image: [this.data.product.image],
+      offerId: [this.data.product.offerId]
     });
-
   }
 
   onSubmit(){
-    this._productService.updateProduct(this.editForm);
+    this.editForm.value.offerId = parseInt(this.offerId);
+    this._productService.updateProduct(this.editForm.value);
   }
 
   onCancelClick(): void {

@@ -2,7 +2,7 @@ import { Component, OnInit, Inject } from '@angular/core';
 
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 
-import { ProductService } from 'src/service/product.service';
+import { ProductService } from 'src/app/service/product.service';
 
 @Component({
   selector: 'app-del-product',
@@ -27,6 +27,7 @@ export class DelProductComponent implements OnInit {
       headers: new Headers({ 'Content-Type': 'application/json' }),
       body : this.data.product
     };
+    console.log(options);
     this._productService.delProduct(options);
     this.dialogRef.close();
   }

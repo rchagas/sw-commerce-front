@@ -1,9 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
 import { FormBuilder, FormGroup, NgForm, Validators, ReactiveFormsModule, FormControl } from '@angular/forms';
 
-import { MatDialogRef } from '@angular/material/dialog';
+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 
-import { ProductService } from 'src/service/product.service';
+import { ProductService } from 'src/app/service/product.service';
 
 
 @Component({
@@ -14,11 +14,13 @@ import { ProductService } from 'src/service/product.service';
 export class AddProductComponent implements OnInit {
 
   addForm: FormGroup;
+  offerId = '1';
 
   constructor(private formBuilder: FormBuilder, 
     public dialogRef: MatDialogRef<AddProductComponent>,
-    private _productService: ProductService) { 
-    
+    private _productService: ProductService,
+    @Inject(MAT_DIALOG_DATA) public data) {
+
   }
 
   ngOnInit() {
@@ -26,12 +28,13 @@ export class AddProductComponent implements OnInit {
       name: [null],
       price: [null],
       image: [null],
+      offerId: [1],
     })
   }
 
   onSubmit(){
-    console.log(this.addForm.value);
-    this._productService.addProduct(this.addForm);
+    this.addForm.value.offerId = parseInt(this.offerId);
+    this._productService.addProduct(this.addForm.value);
   }
 
   onCancelClick(): void {

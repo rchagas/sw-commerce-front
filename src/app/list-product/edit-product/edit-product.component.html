@@ -1,25 +1,33 @@
 <div class="row">
-<div mat-dialog-content class="content col-9">
+<div mat-dialog-content class="content col-8">
     <form class="form-horizontal" [formGroup]="editForm" (ngSubmit)="onSubmit()">
-      <div class="col-12 form-group">
-        <label for="name">Nome do Produto</label>
-        <input type="text" class="form-control" placeholder="Nome do Produto" formControlName="name">
-      </div>
-      <div class="col-12 form-group">
-        <label for="price">R$</label>
-        <input type="number" class="form-control" placeholder="Preço do Produto" formControlName="price">
-      </div>
-      <div class="col-12 form-group">
-        <label for="image">Imagem do Produto</label>
-        <input type="text" class="form-control" placeholder="Imagem do Produto" formControlName="image">
-      </div>
-      <div class="buttons">
-        <button type="button" class="btn btn-outline-dark" (click)="onCancelClick()">Cancelar</button>
-        <button type="submit" class="btn btn-dark" [mat-dialog-close]="editForm.value">Cadastrar</button>
-      </div>
+      <mat-form-field class="col-sm-12">
+        <mat-label for="name">Nome do Produto</mat-label>
+        <input matInput type="text" class="" placeholder="Nome do Produto" formControlName="name">
+      </mat-form-field>
+  
+      <mat-form-field class="col-sm-12 form-group">
+        <mat-label for="price">R$</mat-label>
+        <input matInput type="number" class="" placeholder="Preço do Produto" formControlName="price">
+      </mat-form-field>
+  
+      <mat-form-field class="col-sm-12 form-group">
+        <mat-label for="image">Imagem do Produto</mat-label>
+        <input matInput type="text" class="" placeholder="Imagem do Produto" formControlName="image">
+      </mat-form-field>
     </form>
+    <mat-form-field class="col-sm-12 form-group">
+      <mat-label>Selecione uma oferta para o Produto</mat-label>
+      <mat-select [(value)]="offerId">
+        <mat-option *ngFor="let offer of data.offers" value="{{offer.id}}">{{offer.name}}</mat-option>
+      </mat-select>
+    </mat-form-field>
   </div>
-  <div class="col-3">
+  <div class="col-4">
     <img src="{{data.product.image}}" alt="Foto do Produto">
   </div>
+</div>
+<div class="buttons">
+  <button type="button" class="btn btn-outline-dark" (click)="onCancelClick()">Cancelar</button>
+  <button type="button" class="btn btn-dark" (click)="onSubmit()"[mat-dialog-close]="editForm.value">Editar</button>
 </div>

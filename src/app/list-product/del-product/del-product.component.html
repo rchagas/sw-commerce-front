@@ -12,11 +12,11 @@
     </div>
     <div class="col-4">
         <img src="{{data.product.image}}" alt="Foto do Produto">
-        <div class="buttons">
-            <button type="button" class="btn btn-outline-dark" (click)="onCancelClick()">Cancelar</button>
-            <button type="button" class="btn btn-outline-danger" (click)="delProduct()" [mat-dialog-close]="data.product">Confirmar</button>
-        </div>
     </div>
+    </div>
+    <div class="buttons">
+        <button type="button" class="btn btn-outline-dark" (click)="onCancelClick()">Cancelar</button>
+        <button type="button" class="btn btn-outline-danger" (click)="delProduct()" [mat-dialog-close]="data.product">Confirmar</button>
     </div>
 
 </div>

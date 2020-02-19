@@ -1,10 +1,15 @@
 import { Component, OnInit } from '@angular/core';
-import { Product } from 'src/model/product';
-import { ProductService } from 'src/service/product.service';
+
 import { MatDialog } from '@angular/material/dialog';
+
+import { Product } from 'src/app/model/product';
+import { ProductService } from 'src/app/service/product.service';
+
 import { AddProductComponent } from './add-product/add-product.component';
 import { EditProductComponent } from './edit-product/edit-product.component';
 import { DelProductComponent } from './del-product/del-product.component';
+import { OfferService } from '../service/offer.service';
+
 
 @Component({
   selector: 'app-list-product',
@@ -13,37 +18,40 @@ import { DelProductComponent } from './del-product/del-product.component';
 })
 export class ListProductComponent implements OnInit {
 
-  productService: ProductService;
-  dataSource: Product[];
+  
+  products: Product[];
+  offers;
 
-  constructor(private products: ProductService, public dialog: MatDialog ) {
-    this.productService = products;
+  constructor(
+    private productService: ProductService,
+    private offerService: OfferService,
+    public dialog: MatDialog ) {
    }
 
   ngOnInit() {
-    this.listProduct();
+    this.list();
   }
 
   openAddProduct(): void {
     const dialogRef = this.dialog.open(AddProductComponent, {
       width: '80%',
-      data: {}
+      data: { offers: this.offers }
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      this.listProduct();
+      this.list();
     });
   }
 
   openEditProduct(product: Product): void {
     const dialogRef = this.dialog.open(EditProductComponent, {
       width: '80%',
-      data: {product}
+      data: { product, offers: this.offers}
     });
 
     dialogRef.afterClosed().subscribe(result => {
       console.log(result);
-      this.listProduct();
+      this.list();
     });
   }
 
@@ -55,15 +63,20 @@ export class ListProductComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(result => {
       console.log(result);
-      this.listProduct();
+      this.list();
     });
   }
 
-  listProduct(){
+  list(){
     this.productService.getProducts()
     .subscribe(res => {
-      this.dataSource = res;
-      console.log(this.dataSource);
+      this.products = res;
+    }, err => {
+      console.log(err);
+    });
+    this.offerService.getOffers()
+    .subscribe(res => {
+      this.offers = res;
     }, err => {
       console.log(err);
     });
