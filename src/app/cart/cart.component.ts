@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CartService } from '../service/cart.service';
+import { CookieService } from 'angular2-cookie/services/cookies.service';
+import { Sale } from '../model/sale';
 
 @Component({
   selector: 'app-cart',
@@ -10,9 +12,16 @@ export class CartComponent implements OnInit {
   
   data: Object = [];
 
-  constructor(private _cartService: CartService) { }
+  constructor(
+    private _cartService: CartService) { }
 
   ngOnInit() {
+    this.list();
+  }
+
+  remFromCart(productId: number){
+    console.log(productId);
+    this._cartService.remCart(productId);
     this.list();
   }
 

@@ -1,0 +1,7 @@
+table {
+    margin-top: 5px;
+}
+
+table *{
+    font-size: small;
+}
