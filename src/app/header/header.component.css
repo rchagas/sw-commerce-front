@@ -14,3 +14,21 @@
 #navbar button{
     margin: 10px;
 }
+
+.navbar{
+    background-color: black;
+}
+
+.cart-icon{
+    font-size: 30px;
+}
+
+.btn-cart{
+    color: rgba(255, 255, 255, 0.5);
+    right: 40px;
+}
+
+.btn-cart:hover{
+    right: 40px;
+    color: rgba(255, 255, 255, 0.75);
+}

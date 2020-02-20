@@ -16,3 +16,12 @@ thead button {
     position: relative;
     text-decoration: underline;
 }
+
+.tfoot{
+    background-color: #343a40;
+    border-color: #454d55;
+    font-weight: bold;
+    color: white;
+    padding: 20px;
+    margin-bottom: 5px;
+}

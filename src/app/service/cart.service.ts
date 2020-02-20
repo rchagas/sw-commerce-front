@@ -5,6 +5,7 @@ import { CookieService } from 'angular2-cookie/services/cookies.service';
 import { Observable, of } from 'rxjs';
 import { tap, catchError } from 'rxjs/operators';
 import { Sale } from '../model/sale';
+import { element } from 'protractor';
 
 const apiUrl = 'https://localhost:5001/api/Cart';
 
@@ -44,7 +45,6 @@ export class CartService {
       {
         let pos = this.sales.findIndex(element => element.productId == productId);
         this.sales.splice(pos,1);
-        console.log(this.sales);
         this._cookieService.putObject('cart', this.sales);
       }
     }

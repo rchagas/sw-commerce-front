@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+<nav class="navbar navbar-expand-lg navbar-dark">
     <a class="navbar-brand" routerLink="">Sw Commerce</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -10,6 +10,8 @@
           <a class="nav-link" routerLink="ListProduct" routerLinkActive="active" >Lista de Produtos</a>
         </li>
       </ul>
-      <button class="btn btn-secondary my-2 my-sm-0 btn-sm" type="button" routerLink="Cart">Carrinho</button>      
+      <button mat-button class="btn-cart" type="button" routerLink="Cart"><i class="cart-icon material-icons">
+        shopping_cart
+        </i></button>      
     </div>
   </nav>
