@@ -1,7 +1,13 @@
 
 <div class="container">
     <mat-grid-list cols="3" rowHeight="2:1">
-        <mat-card class="example-card" *ngFor="let product of products">
+        <mat-card class="product-card" *ngFor="let product of products">
+            <mat-card-header *ngIf="product.offerId!=1" class="offer">
+                <mat-card-title>{{product.offer.name}}</mat-card-title>
+            </mat-card-header>
+            <mat-card-header *ngIf="product.offerId==1" class="noOffer">
+                <mat-card-title>Retire na Loja</mat-card-title>
+            </mat-card-header>
             <img mat-card-image src="{{product.image}}" alt="Foto do Produto">
             <mat-card-content>
                 <p class="pname">{{product?.name}}</p>

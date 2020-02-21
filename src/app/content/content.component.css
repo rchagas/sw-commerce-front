@@ -1,6 +1,6 @@
-.example-card {
+.product-card {
     width: 250px;
-    height: 400px;
+    height: 450px;
     margin: 10px;
     display: inline-block;
     box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
@@ -27,4 +27,15 @@ mat-card img{
 .pprice{
     font-size: larger;
     font-weight: bolder;
+}
+mat-card mat-card-header{
+    border-radius: 10px;
+}
+.offer{
+    color: rgba(0,0,0,0.75);
+    background-color: rgba(245, 185, 21, 0.863);
+}
+.noOffer{
+    color: rgba(255,255,255,0.75);
+    background-color: #343a40;
 }

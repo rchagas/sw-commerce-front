@@ -18,9 +18,9 @@
             <td>{{product.product.price.toFixed(2)}}</td>
             <td>{{product.amount}}</td>
             <td>{{product.product.offer.name}}</td>            
-            <td>{{product.totalWithoutDiscount}}</td>
-            <td>{{product.discount}}</td>
-            <td>{{product.total}}</td>
+            <td>R$ {{product.totalWithoutDiscount.toFixed(2)}}</td>
+            <td>R$ {{product.discount.toFixed(2)}}</td>
+            <td>R$ {{product.total.toFixed(2)}}</td>
             <td><button class="btn btn-dark" (click)="remFromCart(product.product.id)">Remover</button></td>
         </tr>
     </tbody>
@@ -28,10 +28,10 @@
 <div class="footer row">
     <div class="col-5"></div>
     <div class="col-1">Valor </div>
-    <div class="col-1">{{data.totalWithoutDiscount}}</div>
+    <div class="col-1">R$ {{data.totalWithoutDiscount.toFixed(2)}}</div>
     <div class="col-1">Desconto </div>
-    <div class="col-1">{{data.discount}}</div>
+    <div class="col-1">R$ {{data.discount.toFixed(2)}}</div>
     <div class="col-1">Total </div>
-    <div class="col-1">{{data.total}}</div>
+    <div class="col-1">R$ {{data.total.toFixed(2)}}</div>
     <div class="col-1"></div>
 </div>
