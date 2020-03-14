@@ -33,7 +33,6 @@ export class ContentComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      console.log(result);
       this.list();
     });
   }
@@ -42,7 +41,6 @@ export class ContentComponent implements OnInit {
     this.productService.getProducts()
     .subscribe(res => {
       this.products = res;
-      console.log(this.products);
     }, err => {
       console.log(err);
     });

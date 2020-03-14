@@ -13,9 +13,9 @@
         </tr>
     </thead>
     <tbody>
-        <tr *ngFor="let product of data.products">
+        <tr *ngFor="let product of data?.products">
             <td>{{product.product.name}}</td>
-            <td>{{product.product.price.toFixed(2)}}</td>
+            <td>R$ {{product.product.price.toFixed(2)}}</td>
             <td>{{product.amount}}</td>
             <td>{{product.product.offer.name}}</td>            
             <td>R$ {{product.totalWithoutDiscount.toFixed(2)}}</td>
@@ -26,12 +26,12 @@
     </tbody>
 </table>
 <div class="footer row">
-    <div class="col-5"></div>
-    <div class="col-1">Valor </div>
-    <div class="col-1">R$ {{data.totalWithoutDiscount.toFixed(2)}}</div>
-    <div class="col-1">Desconto </div>
-    <div class="col-1">R$ {{data.discount.toFixed(2)}}</div>
-    <div class="col-1">Total </div>
-    <div class="col-1">R$ {{data.total.toFixed(2)}}</div>
-    <div class="col-1"></div>
+        <div class="col-5"></div>
+        <div class="col-1">Valor </div>
+        <div class="col-1">R$ {{data?.totalWithoutDiscount.toFixed(2)}}</div>
+        <div class="col-1">Desconto </div>
+        <div class="col-1">R$ {{data?.discount.toFixed(2)}}</div>
+        <div class="col-1">Total </div>
+        <div class="col-1">R$ {{data?.total.toFixed(2)}}</div>
+        <div class="col-1"></div>
 </div>

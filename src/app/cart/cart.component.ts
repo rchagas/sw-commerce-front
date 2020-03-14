@@ -1,16 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 import { CartService } from '../service/cart.service';
-import { CookieService } from 'angular2-cookie/services/cookies.service';
-import { Sale } from '../model/sale';
 
 @Component({
   selector: 'app-cart',
   templateUrl: './cart.component.html',
   styleUrls: ['./cart.component.css']
 })
+
 export class CartComponent implements OnInit {
   
-  data: Object = [];
+  data: Object = null;
 
   constructor(
     private _cartService: CartService) { }
